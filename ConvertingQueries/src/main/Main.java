@@ -34,15 +34,14 @@ public class Main {
 			System.out.println(tokens.nextToken());
 		}
 		
-		
-		
-		
 		System.out.println();
 	}
 
 	private static String readFile(String filename) {
 		try {
+			
 			BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
+			
 			StringBuffer buffer = new StringBuffer();
 			while(reader.ready()){
 				buffer.append(reader.readLine());
