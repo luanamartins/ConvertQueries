@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+import data.managers.TokenManager;
+
 public class Main {
 	
 	/**
@@ -27,7 +29,8 @@ public class Main {
 					+ " FROM       Employees" + 
 					" WHERE      (HireDate >= '1-june-1992') AND (HireDate <= '15-december-1993')";
 		StringTokenizer tokens = new StringTokenizer(query);
-		
+		TokenManager tokenManager = new TokenManager();
+		tokenManager.parse(tokens);
 		System.out.println(tokens);
 		System.out.println(tokens.countTokens());
 		while(tokens.hasMoreTokens()){
