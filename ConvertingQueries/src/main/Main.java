@@ -1,10 +1,5 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.StringTokenizer;
 
 import data.managers.TokenManager;
@@ -25,38 +20,15 @@ public class Main {
 
 	public static void main(String[] args) {
 //		String inputFileStr = readFile("");
-		String query = "SELECT     EmployeeID, FirstName, LastName, HireDate, City"
-					+ " FROM       Employees" + 
-					" WHERE      (HireDate >= '1-june-1992') AND (HireDate <= '15-december-1993')";
+		String query = "SELECT EmployeeID, FirstName, LastName, HireDate, City"
+					+ " FROM Employees" + 
+					" WHERE (HireDate >= '1-june-1992') AND (HireDate <= '15-december-1993')";
 		StringTokenizer tokens = new StringTokenizer(query);
-		TokenManager tokenManager = new TokenManager();
+		TokenManager tokenManager = new TokenManager("","");
 		tokenManager.parse(tokens);
-		System.out.println(tokens);
-		System.out.println(tokens.countTokens());
-		while(tokens.hasMoreTokens()){
-			System.out.println(tokens.nextToken());
-		}
 		
 		System.out.println();
 	}
 
-	private static String readFile(String filename) {
-		try {
-			
-			BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
-			
-			StringBuffer buffer = new StringBuffer();
-			while(reader.ready()){
-				buffer.append(reader.readLine());
-			}
-			reader.close();
-			return buffer.toString();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
 }

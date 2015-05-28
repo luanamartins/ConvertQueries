@@ -7,6 +7,9 @@ public class SelectStatement extends Statement{
 
 	private List<Statement> columns;
 	
+	public SelectStatement(List<Statement> columns){
+		this.columns = columns;
+	}
 	
 	public boolean validateStatement(StringTokenizer tokens){
 		// TODO Validation of selectstatement
