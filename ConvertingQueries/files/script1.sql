@@ -1,1 +1,0 @@
-SELECT EmployeeID, FirstName, LastName, HireDate, City FROM Employees WHERE (HireDate >= '1-june-1992') AND (HireDate <= '15-december-1993')
