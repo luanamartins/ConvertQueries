@@ -1,8 +1,10 @@
 package main;
 
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 import data.managers.TokenManager;
+import data.managers.TokenUtils;
 
 public class Main {
 	
@@ -19,15 +21,17 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-//		String inputFileStr = readFile("");
-		String query = "SELECT EmployeeID, FirstName, LastName, HireDate, City"
-					+ " FROM Employees" + 
-					" WHERE (HireDate >= '1-june-1992') AND (HireDate <= '15-december-1993')";
-		StringTokenizer tokens = new StringTokenizer(query);
-		TokenManager tokenManager = new TokenManager("","");
-		tokenManager.parse(tokens);
-		
-		System.out.println();
+		try {
+			String query = TokenUtils.readFile("files/script1.sql");
+			StringTokenizer tokens = new StringTokenizer(query);
+			String fromDatabase = "SQL Server";
+			String toDatabase = "Oracle";
+			TokenManager tokenManager = new TokenManager(fromDatabase, toDatabase);
+			tokenManager.parse(tokens);
+			System.out.println();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
