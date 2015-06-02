@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import data.objects.FromStatement;
 import data.objects.SelectStatement;
 import data.objects.Statement;
 import data.objects.TableNameStatement;
@@ -42,11 +43,14 @@ public class TokenManager {
 					aux.add(new TableNameStatement(token));
 					token = tokens.nextToken();
 				}
-				// TODO Statement of FROM -> TableStatement
+				FromStatement fromStatement = new FromStatement();
+				fromStatement.setTables(aux);
 				aux.clear();
 			}
 			if(token.equals(TokenStatement.WHERE_STATEMENT)){
-				
+				if(!token.equals(TokenStatement.AND_STATEMENT) || !token.equals(TokenStatement.OR_STATEMENT)){
+					// UNDONE
+				}
 			}
 		}
 		
