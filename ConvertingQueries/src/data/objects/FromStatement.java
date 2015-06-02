@@ -3,16 +3,12 @@ package data.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WhereStatement {
+public class FromStatement {
 
-	private List<Statement> tables;
+	List<Statement> tables;
 	
-	public WhereStatement(){
+	public FromStatement(){
 		tables = new ArrayList<Statement>();
-	}
-
-	public List<Statement> getTables() {
-		return tables;
 	}
 
 	public void setTables(List<Statement> tables) {
