@@ -10,5 +10,6 @@ public class TokenStatement {
 	public final static String LEFT_JOIN_STATEMENT = "LEFT JOIN";
 	public final static String WHERE_STATEMENT = "WHERE";
 	public final static String FROM_STATEMENT = "FROM";
+	public final static String LIKE_STATEMENT = "LIKE";
 	
 }
