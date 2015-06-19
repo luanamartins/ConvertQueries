@@ -22,30 +22,30 @@ public class TokenManager {
 	public List<Statement> parse(String query){
 		StringTokenizer tokens = new StringTokenizer(query);
 		List<Statement> queryListToken = new ArrayList<Statement>();
-		List<Statement> aux = new ArrayList<Statement>();
+		List<Statement> listOfStatements = new ArrayList<Statement>();
 		while(tokens.hasMoreTokens()){
 			String token = tokens.nextToken();
 			if(token.equals(TokenStatement.SELECT_STATEMENT)){
 				
 				token = tokens.nextToken();
 				while(!token.equals(TokenStatement.FROM_STATEMENT)){
-					aux.add(new TableNameStatement(token));
+					listOfStatements.add(new TableNameStatement(token));
 					token = tokens.nextToken();
 				}
 				SelectStatement selectStatement = new SelectStatement();
-				selectStatement.setColumns(aux);
+				selectStatement.setColumns(listOfStatements);
 				queryListToken.add(selectStatement);
-				aux.clear();
+				listOfStatements = new ArrayList<Statement>();
 			}
 			if(token.equals(TokenStatement.FROM_STATEMENT)){
 				token = tokens.nextToken();
 				while(!token.equals(TokenStatement.WHERE_STATEMENT)){
-					aux.add(new TableNameStatement(token));
+					listOfStatements.add(new TableNameStatement(token));
 					token = tokens.nextToken();
 				}
 				FromStatement fromStatement = new FromStatement();
-				fromStatement.setTables(aux);
-				aux.clear();
+				fromStatement.setTables(listOfStatements);
+				listOfStatements = new ArrayList<Statement>();
 			}
 			if(token.equals(TokenStatement.WHERE_STATEMENT)){
 				if(!token.equals(TokenStatement.AND_STATEMENT) || !token.equals(TokenStatement.OR_STATEMENT)){
