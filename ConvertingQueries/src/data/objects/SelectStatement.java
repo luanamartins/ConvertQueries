@@ -2,7 +2,6 @@ package data.objects;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class SelectStatement extends Statement{
 
@@ -17,5 +16,19 @@ public class SelectStatement extends Statement{
 	public void setColumns(List<Statement> columns){
 		this.columns = columns;
 	}
+	
+	public void setModifiers(List<Statement> modifiers){
+		this.modifiers = modifiers;
+	}
+
+	public List<Statement> getModifiers() {
+		return modifiers;
+	}
+
+	public List<Statement> getColumns() {
+		return columns;
+	}
+	
+	
 	
 }
