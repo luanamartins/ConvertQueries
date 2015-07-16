@@ -1,6 +1,6 @@
 package data.managers;
 
-public final class TokenDatabaseUtils {
+public final class TokenDatabaseNames {
 
 	public final static String SQL_SERVER = "SQL Server";
 	public final static String ORACLE = "Oracle";
