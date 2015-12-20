@@ -59,11 +59,11 @@ public class TokenManager {
 	}
 	
 	public void validate(String query){
-		if(toDatabase.equals(TokenDatabaseUtils.SQL_SERVER))
+		if(toDatabase.equals(DatabaseName.SQL_SERVER))
 			parseSQLServer(fromDatabase, query);
-		else if(toDatabase.equals(TokenDatabaseUtils.ORACLE))
+		else if(toDatabase.equals(DatabaseName.ORACLE))
 			parseOracle(fromDatabase, query);
-		else if(toDatabase.equals(TokenDatabaseUtils.POSTGRESQL))
+		else if(toDatabase.equals(DatabaseName.POSTGRESQL))
 			parsePostgreSQL(fromDatabase, query);
 	}
 	
