@@ -1,4 +1,4 @@
-# convertingqueries
+# ConvertQueries
 
 UNDER CONSTRUCTION!
 
