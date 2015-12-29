@@ -8,25 +8,38 @@ import data.objects.FromStatement;
 import data.objects.SelectStatement;
 import data.objects.Statement;
 import data.objects.TableNameStatement;
+import databases.OracleDatabase;
+import databases.PostgreSQLDatabase;
+import databases.SQLServerDatabase;
 
 public class TokenManager {
-	
+
 	private String fromDatabase;
 	private String toDatabase;
 	
+	private List<Statement> queryListToken;
+	private List<Statement> listOfStatements;
+
 	public TokenManager(String fromDatabase, String toDatabase){
 		this.fromDatabase = fromDatabase;
 		this.toDatabase = toDatabase;
+		this.queryListToken = new ArrayList<Statement>();
+		this.listOfStatements = new ArrayList<Statement>();
 	}
 
 	public List<Statement> parse(String query){
 		StringTokenizer tokens = new StringTokenizer(query);
-		List<Statement> queryListToken = new ArrayList<Statement>();
-		List<Statement> listOfStatements = new ArrayList<Statement>();
+		makeListOfStatements(tokens);
+		System.out.println(listOfStatements);
+		// TODO make parse
+		return queryListToken;
+	}
+
+	private void makeListOfStatements(StringTokenizer tokens)
+	{
 		while(tokens.hasMoreTokens()){
 			String token = tokens.nextToken();
 			if(token.equals(TokenStatement.SELECT_STATEMENT)){
-				
 				token = tokens.nextToken();
 				while(!token.equals(TokenStatement.FROM_STATEMENT)){
 					listOfStatements.add(new TableNameStatement(token));
@@ -37,6 +50,7 @@ public class TokenManager {
 				queryListToken.add(selectStatement);
 				listOfStatements = new ArrayList<Statement>();
 			}
+			
 			if(token.equals(TokenStatement.FROM_STATEMENT)){
 				token = tokens.nextToken();
 				while(!token.equals(TokenStatement.WHERE_STATEMENT)){
@@ -53,7 +67,6 @@ public class TokenManager {
 				}
 			}
 		}
-		
 		// TODO make parse
 		return queryListToken;
 	}
@@ -70,16 +83,41 @@ public class TokenManager {
 	public void parseSQLServer(String fromDatabase, String query){
 		// TODO make parse SQLServer
 		//StringTokenizer tokens = new StringTokenizer(query);
-		
 	}
-	
-	public void parseOracle(String fromDatabase, String query){
-		// TODO make parse Oracle
-		
+
+	public void analyseStatement(StringTokenizer tokens, String token)
+	{
+		if(token.equals(TokenStatement.SELECT_STATEMENT)){
+
+			token = tokens.nextToken();
+			while(!token.equals(TokenStatement.FROM_STATEMENT)){
+				listOfStatements.add(new TableNameStatement(token));
+				token = tokens.nextToken();
+			}
+			SelectStatement selectStatement = new SelectStatement();
+			selectStatement.setColumns(listOfStatements);
+			queryListToken.add(selectStatement);
+			listOfStatements = new ArrayList<Statement>();
+		}
 	}
-	
-	public void parsePostgreSQL(String fromDatabase, String query){
-		// TODO make parse PostgreSQL		
+
+	public void validate(String query)
+	{
+		if(toDatabase.equals(TokenDatabaseNames.SQL_SERVER))
+		{
+			SQLServerDatabase sql = new SQLServerDatabase();
+			sql.parseSQLServer(fromDatabase, query);
+		}
+		else if(toDatabase.equals(TokenDatabaseNames.ORACLE))
+		{
+			OracleDatabase sql = new OracleDatabase();
+			sql.parseOracle(fromDatabase, query);
+		}
+		else if(toDatabase.equals(TokenDatabaseNames.POSTGRESQL))
+		{
+			PostgreSQLDatabase sql = new PostgreSQLDatabase();
+			sql.parsePostgreSQL(fromDatabase, query);
+		}
 	}
-	
+
 }
