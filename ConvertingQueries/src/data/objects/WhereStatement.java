@@ -6,8 +6,8 @@ import java.util.List;
 public class WhereStatement {
 
 	private List<Statement> tables;
-	
-	public WhereStatement(){
+
+	public WhereStatement() {
 		tables = new ArrayList<Statement>();
 	}
 
@@ -18,5 +18,5 @@ public class WhereStatement {
 	public void setTables(List<Statement> tables) {
 		this.tables = tables;
 	}
-	
+
 }

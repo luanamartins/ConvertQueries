@@ -4,19 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestFailure 
-{
+public class TestFailure {
 
 	@Test
-	public void test() 
-	{
-//		fail("Not yet implemented");
+	public void test() {
+		// fail("Not yet implemented");
 		assertFalse(false);
 	}
 
 	@Test
-	public void parse()
-	{
+	public void parse() {
 		assertTrue(true);
 	}
 }

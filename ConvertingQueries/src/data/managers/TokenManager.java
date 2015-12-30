@@ -16,18 +16,18 @@ public class TokenManager {
 
 	private String fromDatabase;
 	private String toDatabase;
-	
+
 	private List<Statement> queryListToken;
 	private List<Statement> listOfStatements;
 
-	public TokenManager(String fromDatabase, String toDatabase){
+	public TokenManager(String fromDatabase, String toDatabase) {
 		this.fromDatabase = fromDatabase;
 		this.toDatabase = toDatabase;
 		this.queryListToken = new ArrayList<Statement>();
 		this.listOfStatements = new ArrayList<Statement>();
 	}
 
-	public List<Statement> parse(String query){
+	public List<Statement> parse(String query) {
 		StringTokenizer tokens = new StringTokenizer(query);
 		makeListOfStatements(tokens);
 		System.out.println(listOfStatements);
@@ -35,13 +35,12 @@ public class TokenManager {
 		return queryListToken;
 	}
 
-	private void makeListOfStatements(StringTokenizer tokens)
-	{
-		while(tokens.hasMoreTokens()){
+	private void makeListOfStatements(StringTokenizer tokens) {
+		while (tokens.hasMoreTokens()) {
 			String token = tokens.nextToken();
-			if(token.equals(TokenStatement.SELECT_STATEMENT)){
+			if (token.equals(TokenStatement.SELECT_STATEMENT)) {
 				token = tokens.nextToken();
-				while(!token.equals(TokenStatement.FROM_STATEMENT)){
+				while (!token.equals(TokenStatement.FROM_STATEMENT)) {
 					listOfStatements.add(new TableNameStatement(token));
 					token = tokens.nextToken();
 				}
@@ -50,10 +49,10 @@ public class TokenManager {
 				queryListToken.add(selectStatement);
 				listOfStatements = new ArrayList<Statement>();
 			}
-			
-			if(token.equals(TokenStatement.FROM_STATEMENT)){
+
+			if (token.equals(TokenStatement.FROM_STATEMENT)) {
 				token = tokens.nextToken();
-				while(!token.equals(TokenStatement.WHERE_STATEMENT)){
+				while (!token.equals(TokenStatement.WHERE_STATEMENT)) {
 					listOfStatements.add(new TableNameStatement(token));
 					token = tokens.nextToken();
 				}
@@ -61,27 +60,26 @@ public class TokenManager {
 				fromStatement.setTables(listOfStatements);
 				listOfStatements = new ArrayList<Statement>();
 			}
-			if(token.equals(TokenStatement.WHERE_STATEMENT)){
-				if(!token.equals(TokenStatement.AND_STATEMENT) || !token.equals(TokenStatement.OR_STATEMENT)){
+			if (token.equals(TokenStatement.WHERE_STATEMENT)) {
+				if (!token.equals(TokenStatement.AND_STATEMENT) || !token.equals(TokenStatement.OR_STATEMENT)) {
 					// UNDONE
 				}
 			}
 		}
 		// TODO make parse
-		
-	}
-	
-	public void parseSQLServer(String fromDatabase, String query){
-		// TODO make parse SQLServer
-		//StringTokenizer tokens = new StringTokenizer(query);
+
 	}
 
-	public void analyseStatement(StringTokenizer tokens, String token)
-	{
-		if(token.equals(TokenStatement.SELECT_STATEMENT)){
+	public void parseSQLServer(String fromDatabase, String query) {
+		// TODO make parse SQLServer
+		// StringTokenizer tokens = new StringTokenizer(query);
+	}
+
+	public void analyseStatement(StringTokenizer tokens, String token) {
+		if (token.equals(TokenStatement.SELECT_STATEMENT)) {
 
 			token = tokens.nextToken();
-			while(!token.equals(TokenStatement.FROM_STATEMENT)){
+			while (!token.equals(TokenStatement.FROM_STATEMENT)) {
 				listOfStatements.add(new TableNameStatement(token));
 				token = tokens.nextToken();
 			}
@@ -92,20 +90,14 @@ public class TokenManager {
 		}
 	}
 
-	public void validate(String query)
-	{
-		if(toDatabase.equals(DatabaseName.SQL_SERVER))
-		{
+	public void validate(String query) {
+		if (toDatabase.equals(DatabaseName.SQL_SERVER)) {
 			SQLServerDatabase sql = new SQLServerDatabase();
 			sql.parseSQLServer(fromDatabase, query);
-		}
-		else if(toDatabase.equals(DatabaseName.ORACLE))
-		{
+		} else if (toDatabase.equals(DatabaseName.ORACLE)) {
 			OracleDatabase sql = new OracleDatabase();
 			sql.parseOracle(fromDatabase, query);
-		}
-		else if(toDatabase.equals(DatabaseName.POSTGRESQL))
-		{
+		} else if (toDatabase.equals(DatabaseName.POSTGRESQL)) {
 			PostgreSQLDatabase sql = new PostgreSQLDatabase();
 			sql.parsePostgreSQL(fromDatabase, query);
 		}

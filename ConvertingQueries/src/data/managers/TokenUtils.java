@@ -9,8 +9,8 @@ public final class TokenUtils {
 
 	private static TokenUtils instance = null;
 
-	public static TokenUtils getInstance(){
-		if(instance == null){
+	public static TokenUtils getInstance() {
+		if (instance == null) {
 			instance = new TokenUtils();
 		}
 		return instance;
@@ -20,7 +20,7 @@ public final class TokenUtils {
 		BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
 
 		StringBuffer buffer = new StringBuffer();
-		while(reader.ready()){
+		while (reader.ready()) {
 			buffer.append(reader.readLine());
 		}
 		reader.close();

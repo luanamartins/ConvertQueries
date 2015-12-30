@@ -15,19 +15,19 @@ public class TokenStatement {
 	public final static String INNER_JOIN_STATEMENT = "INNER JOIN";
 	public final static String LEFT_JOIN_STATEMENT = "LEFT JOIN";
 	public final static String LIKE_STATEMENT = "LIKE";
-	
+
 	// Logical tokens
 	public final static String AND_STATEMENT = "AND";
 	public final static String OR_STATEMENT = "OR";
-	
+
 	// Set tokens
 	public final static String MINUS_STATEMENT = "MINUS";
 	public final static String UNION_STATEMENT = "UNION";
 	public final static String INTERSECT_STATEMENT = "INTERSECT";
 	public final static String EXCEPT_STATEMENT = "EXCEPT";
-	
+
 	// Update tokens
 	public final static String UPDATE_STATEMENT = "UPDATE";
 	public final static String SET_STATEMENT = "SET";
-	
+
 }
