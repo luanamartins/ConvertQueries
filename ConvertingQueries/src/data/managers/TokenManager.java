@@ -68,16 +68,7 @@ public class TokenManager {
 			}
 		}
 		// TODO make parse
-		return queryListToken;
-	}
-	
-	public void validate(String query){
-		if(toDatabase.equals(DatabaseName.SQL_SERVER))
-			parseSQLServer(fromDatabase, query);
-		else if(toDatabase.equals(DatabaseName.ORACLE))
-			parseOracle(fromDatabase, query);
-		else if(toDatabase.equals(DatabaseName.POSTGRESQL))
-			parsePostgreSQL(fromDatabase, query);
+		
 	}
 	
 	public void parseSQLServer(String fromDatabase, String query){
@@ -103,17 +94,17 @@ public class TokenManager {
 
 	public void validate(String query)
 	{
-		if(toDatabase.equals(TokenDatabaseNames.SQL_SERVER))
+		if(toDatabase.equals(DatabaseName.SQL_SERVER))
 		{
 			SQLServerDatabase sql = new SQLServerDatabase();
 			sql.parseSQLServer(fromDatabase, query);
 		}
-		else if(toDatabase.equals(TokenDatabaseNames.ORACLE))
+		else if(toDatabase.equals(DatabaseName.ORACLE))
 		{
 			OracleDatabase sql = new OracleDatabase();
 			sql.parseOracle(fromDatabase, query);
 		}
-		else if(toDatabase.equals(TokenDatabaseNames.POSTGRESQL))
+		else if(toDatabase.equals(DatabaseName.POSTGRESQL))
 		{
 			PostgreSQLDatabase sql = new PostgreSQLDatabase();
 			sql.parsePostgreSQL(fromDatabase, query);
