@@ -5,10 +5,11 @@ public class SQLServerDatabase implements DatabaseType {
 	public void parseSQLServer(String fromDatabase, String query) {
 		// TODO make parse SQLServer
 		// StringTokenizer tokens = new StringTokenizer(query);
-
+		validate(query);
 	}
 
-	public void validate() {
+	@Override
+	public void validate(String query) {
 		// TODO Validate method of SQLServerDatabase
 	}
 
