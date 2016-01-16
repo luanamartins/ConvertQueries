@@ -1,16 +1,17 @@
-package testcases;
+package testcases.oracle;
 
 import org.junit.Test;
 
 import constants.DatabaseName;
 import databases.OracleDatabase;
 
-public class OracleToSqlServerTest {
+public class OracleToMySqlTest {
 
 	@Test
 	public void test() {
 		OracleDatabase oracle = new OracleDatabase();
-		oracle.parse(DatabaseName.SQL_SERVER, "");
+		oracle.parse(DatabaseName.MY_SQL, "");
+		
 	}
 
 }

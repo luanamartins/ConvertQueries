@@ -1,4 +1,4 @@
-package testcases;
+package testcases.sqlserver;
 
 import org.junit.Test;
 
@@ -9,8 +9,7 @@ public class SqlServerToOracleTest {
 
 	@Test
 	public void test() {
-		SQLServerDatabase oracle = new SQLServerDatabase();
-		oracle.parse(DatabaseName.ORACLE, "");
+		SQLServerDatabase sqlServer = new SQLServerDatabase();
+		sqlServer.parse(DatabaseName.ORACLE, "");
 	}
-
 }

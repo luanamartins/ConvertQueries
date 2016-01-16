@@ -1,4 +1,4 @@
-package testcases;
+package testcases.oracle;
 
 import org.junit.Test;
 
