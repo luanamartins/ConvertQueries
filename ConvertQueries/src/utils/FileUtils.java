@@ -5,13 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public final class TokenUtils {
+public final class FileUtils {
 
-	private static TokenUtils instance = null;
+	private static FileUtils instance = null;
 
-	public static TokenUtils getInstance() {
+	public static FileUtils getInstance() {
 		if (instance == null) {
-			instance = new TokenUtils();
+			instance = new FileUtils();
 		}
 		return instance;
 	}
