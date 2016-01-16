@@ -1,4 +1,4 @@
-package data;
+package statements;
 
 public class ConditionalStatement extends Statement {
 
