@@ -1,4 +1,4 @@
-package data.objects;
+package data;
 
 public class Statement {
 

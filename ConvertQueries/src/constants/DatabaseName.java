@@ -1,4 +1,4 @@
-package data.managers;
+package constants;
 
 public final class DatabaseName {
 

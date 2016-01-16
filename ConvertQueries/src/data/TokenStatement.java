@@ -1,4 +1,4 @@
-package data.managers;
+package data;
 
 public class TokenStatement {
 

@@ -2,8 +2,8 @@ package main;
 
 import java.io.IOException;
 
-import data.managers.TokenManager;
-import data.managers.TokenUtils;
+import managers.TokenManager;
+import utils.TokenUtils;
 
 public class Main {
 

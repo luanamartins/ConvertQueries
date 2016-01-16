@@ -1,13 +1,15 @@
-package data.managers;
+package managers;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import data.objects.FromStatement;
-import data.objects.SelectStatement;
-import data.objects.Statement;
-import data.objects.TableNameStatement;
+import constants.DatabaseName;
+import data.FromStatement;
+import data.SelectStatement;
+import data.Statement;
+import data.TableNameStatement;
+import data.TokenStatement;
 import databases.OracleDatabase;
 import databases.PostgreSQLDatabase;
 import databases.SQLServerDatabase;
