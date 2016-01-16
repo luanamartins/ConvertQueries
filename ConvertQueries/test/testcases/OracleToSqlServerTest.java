@@ -1,14 +1,16 @@
 package testcases;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import constants.DatabaseName;
+import databases.OracleDatabase;
 
 public class OracleToSqlServerTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		OracleDatabase oracle = new OracleDatabase();
+		oracle.parse(DatabaseName.SQL_SERVER, "");
 	}
 
 }
