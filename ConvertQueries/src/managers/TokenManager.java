@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import statements.FromStatement;
+import statements.SelectStatement;
+import statements.Statement;
+import statements.TableNameStatement;
+import statements.TokenStatement;
 import constants.DatabaseName;
-import data.FromStatement;
-import data.SelectStatement;
-import data.Statement;
-import data.TableNameStatement;
-import data.TokenStatement;
 import databases.OracleDatabase;
 import databases.PostgreSQLDatabase;
 import databases.SQLServerDatabase;
