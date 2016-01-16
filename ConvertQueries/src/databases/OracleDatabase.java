@@ -3,11 +3,11 @@ package databases;
 public class OracleDatabase implements DatabaseType {
 
 	public void parseOracle(String fromDatabase, String query) {
-		// TODO make parse Oracle
+		validate(query);
 
 	}
 
-	public void validate() {
+	public void validate(String query) {
 		// TODO Validate method of OracleDatabase
 	}
 

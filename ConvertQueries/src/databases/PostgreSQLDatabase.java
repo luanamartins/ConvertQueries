@@ -6,7 +6,7 @@ public class PostgreSQLDatabase implements DatabaseType {
 		// TODO make parse PostgreSQL
 	}
 
-	public void validate() {
+	public void validate(String query) {
 		// TODO Validate method of PostgresSQL
 	}
 

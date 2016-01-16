@@ -2,7 +2,7 @@ package databases;
 
 public class MySQLDatabase implements DatabaseType {
 
-	public void validate() {
+	public void validate(String query) {
 		// TODO Validate method of MySQLDatabase
 	}
 
