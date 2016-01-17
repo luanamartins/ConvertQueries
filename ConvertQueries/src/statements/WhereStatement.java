@@ -3,7 +3,7 @@ package statements;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WhereStatement {
+public class WhereStatement extends Statement {
 
 	private List<Statement> tables;
 
