@@ -8,7 +8,7 @@ import statements.FromStatement;
 import statements.SelectStatement;
 import statements.Statement;
 import statements.TableNameStatement;
-import statements.TokenStatement;
+import constants.TokenStatement;
 import constants.DatabaseName;
 import databases.OracleDatabase;
 import databases.PostgreSQLDatabase;
