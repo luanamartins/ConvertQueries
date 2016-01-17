@@ -3,7 +3,7 @@ package statements;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FromStatement {
+public class FromStatement extends Statement {
 
 	List<Statement> tables;
 
