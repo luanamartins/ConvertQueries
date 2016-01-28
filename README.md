@@ -6,6 +6,9 @@ This project aims to develop a simple converter of SQL queries between some Data
   - Java 8
   - Eclipse Mars
 
+## Configuration instructions
+  - To do
+
 ## Installation instructions
   - To do
 
